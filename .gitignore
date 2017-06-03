@@ -240,3 +240,12 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+/WebServiceExample1/CalculatorWebApplication/packages.config
+/WebServiceExample1/CalculatorWebApplication/Web.Debug.config
+/WebServiceExample1/CalculatorWebApplication/Web.config
+/WebServiceExample1/CalculatorWebApplication/Properties
+/WebServiceExample1/CalculatorWebApplication/Web.Release.config
+/WebServiceExample1/CalculatorWebApplication/CalculatorWebApplication.csproj
+/WebServiceExample1/CalculatorWebApplication/ApplicationInsights.config
+/WebServiceExample1/CalculatorWebApplication/Service References/CalculatorService/configuration91.svcinfo
+/WebServiceExample1/CalculatorWebApplication/Service References/CalculatorService/configuration.svcinfo
