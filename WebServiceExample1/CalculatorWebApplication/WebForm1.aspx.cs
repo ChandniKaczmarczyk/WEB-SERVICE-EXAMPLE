@@ -21,6 +21,10 @@ namespace CalculatorWebApplication
             int result = client.AddTwoNumbers(Convert.ToInt32(txtFirstNumber.Text),
                 Convert.ToInt32(txtSecondNumber.Text));
             lblResult.Text = result.ToString();
+            GridView1.DataSource=client.GetCalculations();
+            GridView1.DataBind();
+
+            GridView1.HeaderRow.Cells[0].Text = "Recent Calculations";
         }
     }
 }

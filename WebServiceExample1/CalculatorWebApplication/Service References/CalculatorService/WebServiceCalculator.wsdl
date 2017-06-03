@@ -27,6 +27,21 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="GetCalculations">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCalculationsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCalculationsResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
     </s:schema>
   </wsdl:types>
   <wsdl:message name="HelloWorldSoapIn">
@@ -41,6 +56,12 @@
   <wsdl:message name="AddTwoNumbersSoapOut">
     <wsdl:part name="parameters" element="tns:AddTwoNumbersResponse" />
   </wsdl:message>
+  <wsdl:message name="GetCalculationsSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCalculations" />
+  </wsdl:message>
+  <wsdl:message name="GetCalculationsSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCalculationsResponse" />
+  </wsdl:message>
   <wsdl:portType name="WebServiceCalculatorSoap">
     <wsdl:operation name="HelloWorld">
       <wsdl:input message="tns:HelloWorldSoapIn" />
@@ -49,6 +70,10 @@
     <wsdl:operation name="AddTwoNumbers">
       <wsdl:input message="tns:AddTwoNumbersSoapIn" />
       <wsdl:output message="tns:AddTwoNumbersSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCalculations">
+      <wsdl:input message="tns:GetCalculationsSoapIn" />
+      <wsdl:output message="tns:GetCalculationsSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="WebServiceCalculatorSoap" type="tns:WebServiceCalculatorSoap">
@@ -71,6 +96,15 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetCalculations">
+      <soap:operation soapAction="http://tempuri.org/GetCalculations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="WebServiceCalculatorSoap12" type="tns:WebServiceCalculatorSoap">
     <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
@@ -85,6 +119,15 @@
     </wsdl:operation>
     <wsdl:operation name="AddTwoNumbers">
       <soap12:operation soapAction="http://tempuri.org/AddTwoNumbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCalculations">
+      <soap12:operation soapAction="http://tempuri.org/GetCalculations" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
